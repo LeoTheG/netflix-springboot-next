@@ -1,6 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* font-semibold */
+@font-face {
+  font-family: 'Netflix Sans';
+  src: url('/fonts/Netflix Sans Medium.otf');
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* font-medium */
+@font-face {
+  font-family: 'Netflix Sans';
+  src: url('/fonts/Netflix Sans Light.otf');
+  font-weight: 500;
+  font-style: normal;
+}
+
  
 @layer base {
   :root {

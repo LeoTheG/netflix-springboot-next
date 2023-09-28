@@ -18,13 +18,14 @@ public class MediaItem {
     private String type; // e.g., Movie, TV Show, etc.
     private String[] imageUrls;
     private String previewImageUrl;
+    private String titleLogoUrl;
 
     // Constructors, Getters, and Setters
     public MediaItem() {
     }
 
     public MediaItem(String title, String description, Date releaseDate, String genre, String type, String[] imageUrls,
-            String previewImageUrl) {
+            String previewImageUrl, String titleLogoUrl) {
         this.title = title;
         this.description = description;
         this.releaseDate = releaseDate;
@@ -32,6 +33,7 @@ public class MediaItem {
         this.type = type;
         this.imageUrls = imageUrls;
         this.previewImageUrl = previewImageUrl;
+        this.titleLogoUrl = titleLogoUrl;
     }
 
     public Long getId() {
@@ -96,6 +98,14 @@ public class MediaItem {
 
     public void setPreviewImageUrl(String previewImageUrl) {
         this.previewImageUrl = previewImageUrl;
+    }
+
+    public String getTitleLogoUrl() {
+        return titleLogoUrl;
+    }
+
+    public void setTitleLogoUrl(String titleLogoUrl) {
+        this.titleLogoUrl = titleLogoUrl;
     }
 
 }

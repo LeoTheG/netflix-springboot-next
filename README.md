@@ -7,3 +7,7 @@
 
 Frontend is on http://localhost:3000/
 Backend is on http://localhost:8080
+
+## Redis
+
+View dashboard, like usage statistics: flyctl redis dashboard image-app

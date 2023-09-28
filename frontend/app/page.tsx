@@ -1,14 +1,19 @@
+import { Home } from "@/components/Home";
 import { UserService } from "@/components/UserService";
+import { Metadata } from "next";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "Home - Netflix"
+};
+
+export default function Page() {
   return (
-    <div className="dark">
-      <div className="min-w-screen min-h-screen bg-background">
-        <div className="p-16 max-w-[1000px] flex flex-col gap-8">
-          <h1 className="text-primary text-3xl">User Service</h1>
-          <UserService />
+    <>
+      <div className="dark">
+        <div className="min-w-screen min-h-screen bg-background">
+          <Home />
         </div>
       </div>
-    </div>
+    </>
   );
 }

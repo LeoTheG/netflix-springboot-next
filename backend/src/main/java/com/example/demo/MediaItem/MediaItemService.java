@@ -39,6 +39,7 @@ public class MediaItemService {
             existingMediaItem.setType(mediaItemDetails.getType());
             existingMediaItem.setImageUrls(mediaItemDetails.getImageUrls());
             existingMediaItem.setPreviewImageUrl(mediaItemDetails.getPreviewImageUrl());
+            existingMediaItem.setTitleLogoUrl(mediaItemDetails.getTitleLogoUrl());
             return mediaItemRepository.save(existingMediaItem);
         }
         return null;
