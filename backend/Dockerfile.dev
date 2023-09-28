@@ -10,4 +10,5 @@ COPY src src
 
 EXPOSE 8080
 
+RUN ./gradlew --stop
 CMD ["./gradlew", "bootRun"]

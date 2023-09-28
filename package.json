@@ -6,7 +6,8 @@
   "scripts": {
     "start": "docker-compose -f docker-compose.dev.yml up",
     "build:dev": "docker-compose -f docker-compose.dev.yml build",
-    "build:dev:frontend": "docker-compose -f docker-compose.dev.yml build frontend"
+    "build:dev:frontend": "docker-compose -f docker-compose.dev.yml build frontend",
+    "build:dev:backend": "docker-compose -f docker-compose.dev.yml build frontend"
   },
   "keywords": [],
   "author": "",
