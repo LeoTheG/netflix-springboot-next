@@ -55,4 +55,4 @@ In Spring Boot, certain directories are automatically included in the classpath.
 
 These include directories like src/main/resources/, among others. Spring Boot is configured by default to serve static resources (like HTML, CSS, and image files) from certain directories in the classpath.
 
-In this application, we store public assets like GIFs and images in src/main/resources/static. In production, we would likely use a CDN to serve these assets, but for now, we can just serve them from the classpath.
+In this application, we store smaller public assets like images in src/main/resources/static. We store larger items like gifs in an s3 bucket.

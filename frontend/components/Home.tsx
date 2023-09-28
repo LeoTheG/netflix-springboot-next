@@ -34,8 +34,8 @@ export const Home = () => {
       {mediaItems.length > 0 && (
         <div className="absolute w-full top-0">
           <Banner
-            img={`${SERVER_URL}/${mediaItems[0].previewImageUrl}`}
-            titleLogo={`${SERVER_URL}/${mediaItems[0].titleLogoUrl}`}
+            img={mediaItems[0].previewImageUrl}
+            titleLogo={mediaItems[0].titleLogoUrl}
             description={mediaItems[0].description}
           />
           <MediaList mediaItems={mediaItems} title="Trending Now" />
@@ -93,9 +93,9 @@ const MediaList = ({
         {mediaItems.map((mediaItem) => (
           <div key={mediaItem.id} className="flex-shrink-0">
             <img
-              src={`${SERVER_URL}/${mediaItem.imageUrls[0]}`}
+              src={mediaItem.imageUrls[0]}
               alt={mediaItem.title}
-              className="h-[200px] w-[150px] object-cover"
+              className="h-[125px] w-[220px] object-cover"
             />
           </div>
         ))}
