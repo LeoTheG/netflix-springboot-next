@@ -1,9 +1,8 @@
 # Netflix Clone - NextJS + Spring Boot + Postgres
 
-![example-img](https://github.com/LeoTheG/netflix-springboot-next/assets/6187214/be8d6962-9e10-435e-abe0-462486bc8278)
+![example-img-2](https://github.com/LeoTheG/netflix-springboot-next/assets/6187214/2a782fee-cc50-4510-90ad-a6c994f2abea)
 
 ## Local Setup
-
 - Install docker
 - `npm start` - starts the local docker containers
 
