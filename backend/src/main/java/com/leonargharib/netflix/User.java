@@ -1,4 +1,5 @@
-package com.example.demo;
+package com.leonargharib.netflix;
+
 import jakarta.persistence.*;
 
 @Entity

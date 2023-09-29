@@ -1,4 +1,4 @@
-package com.example.demo.MediaItem;
+package com.leonargharib.netflix.MediaItem;
 
 import jakarta.persistence.*;
 import java.util.Date;

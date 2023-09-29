@@ -1,4 +1,4 @@
-package com.example.demo.MediaItem;
+package com.leonargharib.netflix.MediaItem;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
