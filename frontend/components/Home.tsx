@@ -152,4 +152,7 @@ const Header = () => {
 }
 */
 const requestMediaItems = () => fetch(`${SERVER_URL}/mediaitems`);
-const SERVER_URL = "http://localhost:8080";
+const SERVER_URL =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:8080"
+    : "https://leog-netflix-backend.fly.dev";
