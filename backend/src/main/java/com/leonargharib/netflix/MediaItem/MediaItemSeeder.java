@@ -49,7 +49,46 @@ public class MediaItemSeeder implements CommandLineRunner {
                 "https://training-images-leogh.s3.amazonaws.com/suits.gif",
                 baseUrl + "/images/suits-title-logo.png");
 
-        mediaItemRepository.saveAll(List.of(item1, item2));
+        String[] item3Images = new String[1];
+        item3Images[0] = baseUrl + "/images/greys-anatomy-1.png";
+
+        MediaItem item3 = new MediaItem(
+                "Grey's Anatomy",
+                "Intern (and eventual resident) Meredith Grey finds herself caught up in personal and professional passions with fellow doctors at a Seattle hospital.",
+                new Date(),
+                "Drama",
+                "TV Show",
+                item3Images,
+                "https://training-images-leogh.s3.amazonaws.com/greys-anatomy.gif",
+                baseUrl + "/images/greys-anatomy-title-logo.png");
+
+        String[] item4Images = new String[1];
+        item4Images[0] = baseUrl + "/images/stranger-things-1.jpg";
+
+        MediaItem item4 = new MediaItem(
+                "Stranger Things",
+                "When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces and one strange little girl.",
+                new Date(),
+                "Drama",
+                "TV Show",
+                item4Images,
+                "https://training-images-leogh.s3.amazonaws.com/stranger-things.gif",
+                baseUrl + "/images/stranger-things-title-logo.png");
+
+        String[] item5Images = new String[1];
+        item5Images[0] = baseUrl + "/images/breaking-bad-1.png";
+
+        MediaItem item5 = new MediaItem(
+                "Breaking Bad",
+                "A high school chemistry teacher dying of cancer teams with a former student to secure his family's future by manufacturing and selling crystal meth.",
+                new Date(),
+                "Drama",
+                "TV Show",
+                item5Images,
+                "https://training-images-leogh.s3.amazonaws.com/breaking-bad.gif",
+                baseUrl + "/images/breaking-bad-title-logo.png");
+
+        mediaItemRepository.saveAll(List.of(item1, item2, item3, item4, item5));
         System.out.println("media items have been added to the database.");
     }
 }

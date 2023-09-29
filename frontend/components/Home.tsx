@@ -59,17 +59,29 @@ const Banner = ({
       <img
         src={img}
         alt="Banner"
-        className="h-auto max-h-[600px] w-full object-cover object-top"
+        className="h-auto max-h-[800px] min-h-[70vh] w-full object-cover object-top"
       />
-      <div className="absolute bottom-[35%] px-16">
-        <img src={titleLogo} />
-        <div className="w-[400px] text-white">{description}</div>
+      <div className="absolute bottom-[30%] px-16">
+        <img src={titleLogo} className="w-[500px]" />
+        <div
+          className="w-[400px] text-white font-semibold"
+          style={{
+            textShadow: "2px 2px 4px rgba(0,0,0,.45)"
+          }}
+        >
+          {description}
+        </div>
         <div className="flex gap-4">
-          <button className="bg-white w-fit text-black px-4 py-2 rounded-md mt-4 font-semibold flex">
-            <PlayIcon />
+          <button className="bg-white w-fit text-black px-4 py-2 rounded-md mt-4 font-semibold flex gap-2">
+            <PlayIcon style={{ fill: "black" }} />
             <span>Play</span>
           </button>
-          <button className="flex w-fit bg-gray-700 text-white px-4 py-2 rounded-md mt-4 font-semibold gap-2">
+          <button
+            className="flex w-fit  text-white px-4 py-2 rounded-md mt-4 font-semibold gap-2"
+            style={{
+              backgroundColor: "rgba(109, 109, 110, 0.7)"
+            }}
+          >
             <InfoIcon />
             <span>More Info</span>
           </button>
@@ -88,7 +100,7 @@ const MediaList = ({
 }) => {
   return (
     <div className="flex flex-col z-50 relative px-16 mt-[-35px]">
-      <div className="text-white font-semibold">{title}</div>
+      <div className="text-white font-semibold text-xl">{title}</div>
       <div className="flex overflow-x-auto gap-1">
         {mediaItems.map((mediaItem) => (
           <div key={mediaItem.id} className="flex-shrink-0">
