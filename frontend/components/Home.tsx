@@ -17,13 +17,24 @@ interface IMediaItem {
 
 export const Home = () => {
   const [mediaItems, setMediaItems] = useState<IMediaItem[]>([]);
+  const [isLoadingMediaItems, setIsLoadingMediaItems] = useState(true);
 
   useEffect(() => {
-    requestMediaItems().then((response) => {
-      response.json().then((data) => {
-        setMediaItems(data);
+    setIsLoadingMediaItems(true);
+    requestMediaItems()
+      .then((response) => {
+        if (Array.isArray(response)) {
+          setMediaItems(response);
+        } else {
+          //@ts-ignore
+          response.json().then((data) => {
+            setMediaItems(data);
+          });
+        }
+      })
+      .finally(() => {
+        setIsLoadingMediaItems(false);
       });
-    });
   }, []);
 
   console.log({ mediaItems });
@@ -31,6 +42,14 @@ export const Home = () => {
   return (
     <div className="[&_*]:font-sans ">
       <Header />
+      {isLoadingMediaItems && (
+        <div className="flex justify-center items-center h-screen flex-col gap-2">
+          <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900"></div>
+          <div className="text-white">
+            Loading, this might take up to a minute if the server is asleep!
+          </div>
+        </div>
+      )}
       {mediaItems.length > 0 && (
         <div className="absolute w-full top-0">
           <Banner
@@ -163,8 +182,43 @@ const Header = () => {
     "previewImageUrl": "/images/gilmore-girls.gif"
 }
 */
-const requestMediaItems = () => fetch(`${SERVER_URL}/mediaitems`);
 const SERVER_URL =
   process.env.NODE_ENV === "development"
     ? "http://localhost:8080"
     : "https://leog-netflix-backend.fly.dev";
+
+const MAX_RETRIES = 5;
+const INITIAL_TIMEOUT = 5000;
+
+const requestMediaItems = async (retryCount = 0) => {
+  try {
+    const response = await fetch(`${SERVER_URL}/mediaitems`);
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch media items");
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    if (retryCount < MAX_RETRIES) {
+      console.error(error);
+      console.log(`Retrying ${retryCount + 1} of ${MAX_RETRIES}...`);
+
+      return new Promise<any>((resolve, reject) => {
+        setTimeout(async () => {
+          try {
+            const data = await requestMediaItems(retryCount + 1);
+            console.log(`Retry ${retryCount + 1} successful!`);
+            console.log({ data });
+            resolve(data);
+          } catch (error) {
+            reject(error);
+          }
+        }, (retryCount + 1) * INITIAL_TIMEOUT); // Increase timeout for each retry
+      });
+    } else {
+      throw new Error("Max retries reached, failed to fetch media items");
+    }
+  }
+};
